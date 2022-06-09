@@ -43,7 +43,7 @@ Selesai sudah untuk installasi Mininet, Ryu, dan Openflownya
    `mininet> sh ovs-ofctl add-flow s2 -O OpenFlow13 "in_port=2,action=output:1“`
 3. Uji koneksi h1 dengan h2 `mininet> h1 ping -c2 h2`
    
-   Setelah itu kita mencoaba percobaan pada topology mininet 3 switch (loop) dengan 6 host dengan penerapan STP. Gunakan command `Kode program custom mininet topology`.
+   Setelah itu kita mencoaba percobaan pada topology mininet 3 switch (loop) dengan 6 host dengan penerapan STP. Gunakan command `Kode program custom mininet topology.py`.
    Setelah itu kita dapat lihat hasilnya
    ![Screenshot (458)](https://user-images.githubusercontent.com/97608893/172869328-bb63de58-f8d1-45b3-86f6-8a9a524d4e55.png)
 ![Screenshot (459)](https://user-images.githubusercontent.com/97608893/172869349-49fdee2e-7f43-4678-a8b5-3225f2b8b1a9.png)
@@ -56,16 +56,13 @@ Jalankan topo_lb.py dgn "sudo python3 topo_lb.py" # pada terminal console 2
 
 ## BAB 4 Shortest Path Route
 
-lone repo berikut https://github.com/abazh/learn_sdn.git
-$ git clone https://github.com/abazh/learn_sdn.git
+- Pertama kita jalankan Program Ryu - Dijkstra
+clone repo berikut https://github.com/abazh/learn_sdn.git
+`$ git clone https://github.com/abazh/learn_sdn.git`
+- Setelah itu jalankan `$ cd learn_sdn/SPF`
+- Buka 2 terminal
+- Pada Terminal Console 1 jalankan: `$ ryu-manager --observe-links dijkstra_Ryu_controller.py`
+- Pada Terminal Console 2 jalankan: `$ sudo python3 topo-spf_lab.py`
+- Lanjutkan dengan cek semua konektivitas, misalnya `$ mininet> h1 ping -c 4 h4` , `$ mininet> h5 ping -c 4 h6`
 
-$ cd learn_sdn/SPF
-
-Pada Terminal Console 1 jalankan:
-$ ryu-manager --observe-links dijkstra_Ryu_controller.py
-Pada Terminal Console 2 jalankan:
-$ sudo python3 topo-spf_lab.py
-Lanjutkan dengan cek semua konektivitas, misalnya
-$ mininet> h1 ping -c 4 h4
-$ mininet> h5 ping -c 4 h6
 
