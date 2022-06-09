@@ -31,5 +31,11 @@ Selesai sudah untuk installasi Mininet, Ryu, dan Openflownya
 
 ## BAB 2 Custom Mininet Topology
 
+1. Jalankan Mininet dengan Custom Topology dengan command `$ sudo mn --controller=none --custom custom_topo_2sw2h.py --topo mytopo --mac --arp`
+2. Selah itu buat flow agar h1 terhubung dengan h2 dengan command `mininet> sh ovs-ofctl add-flow s1 -O OpenFlow13 "in_port=1,action=output:2"`,
+   `mininet> sh ovs-ofctl add-flow s1 -O OpenFlow13 "in_port=2,action=output:1"`,
+   `mininet> sh ovs-ofctl add-flow s2 -O OpenFlow13 "in_port=1,action=output:2"`,
+   `mininet> sh ovs-ofctl add-flow s2 -O OpenFlow13 "in_port=2,action=output:1“`
+3. Uji koneksi h1 dengan h2 `mininet> h1 ping -c2 h2`
    
 
